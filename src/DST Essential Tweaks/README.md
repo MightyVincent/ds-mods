@@ -9,17 +9,17 @@ This mod is mainly for my personal usage, aiming at integrating / modifying / fi
     - Combat Traps will auto reset after a short delay
     - Works only on: Teeth Trap / Maxwell Teeth Trap / Bramble Trap (Won't affect Anenemy trap)
 
-1. Catch Trap Can Reset (Inspired by [Trap Reset](https://steamcommunity.com/sharedfiles/filedetails/?id=679636739))
+2. Catch Trap Can Reset (Inspired by [Trap Reset](https://steamcommunity.com/sharedfiles/filedetails/?id=679636739))
 
     - Catch Traps can be reset instead of picking up
     - Works only on: Trap / Bird Trap
 
-1. Tent & Siesta Lean-to Uses Tweak (Inspired by [Infinite Tent Uses](https://steamcommunity.com/sharedfiles/filedetails/?id=356930882))
+3. Tent & Siesta Lean-to Uses Tweak (Inspired by [Infinite Tent Uses](https://steamcommunity.com/sharedfiles/filedetails/?id=356930882))
 
     - Can change uses from default value to infinite as you wish
     - When set to infinite, the uses will always be updated to the max value, instead of reduced
 
-1. Really Invincible Companions
+4. Really Invincible Companions
 
     - Some companions having a player as leader won't take any damage or attract monsters' attention
     - Meanwhile, they can still be interact with like storing items
