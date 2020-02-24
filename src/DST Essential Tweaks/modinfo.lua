@@ -94,5 +94,15 @@ configuration_options = {
         ),
         default = 0,
     },
+    {
+        name = "companion_invincible",
+        label = "Invincible Companions",
+        hover = [[Some companions having a player as leader won't take any damage or attract combat attention, meanwhile they can still be interact with like storing items]],
+        options = {
+            { description = "Disabled", data = false, hover = "Vanilla" },
+            { description = "Enabled (Default)", data = true },
+        },
+        default = true,
+    },
 
 }

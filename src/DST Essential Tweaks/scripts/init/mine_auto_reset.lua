@@ -1,13 +1,13 @@
-local prefabs = {
+local prefabNames = {
     "trap_teeth",
     "trap_teeth_maxwell",
     "trap_bramble",
 }
 
-for _, prefab in ipairs(prefabs) do
-    AddPrefabPostInit(prefab, function(inst)
-        if inst.components.mine ~= nil then
-            local mine = inst.components.mine
+for _, prefabName in ipairs(prefabNames) do
+    AddPrefabPostInit(prefabName, function(prefab)
+        if prefab.components.mine ~= nil then
+            local mine = prefab.components.mine
             local function _ResetInTime(self, timeout)
                 self.inst:DoPeriodicTask(timeout, function()
                     if (self.issprung) then

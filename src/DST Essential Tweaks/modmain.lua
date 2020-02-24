@@ -1,21 +1,22 @@
 utils = GLOBAL.require('lib/utils')
 utils.InitEnvReferences(GLOBAL, env)
-log("current language:", config.lang)
+logger.info("current language:", config.lang)
 
 local initScripts = {
     ["scripts/init/mine_auto_reset.lua"] = config.mine_auto_reset,
     ["scripts/init/trap_can_reset.lua"] = config.trap_can_reset,
-    ["scripts/init/tent_uses.lua"] = config.tent_uses or config.siesta_uses,
+    ["scripts/init/tent_tweak.lua"] = config.tent_uses or config.siesta_uses,
+    ["scripts/init/companion_tweak.lua"] = config.companion_invincible,
 }
 
 for script, condition in pairs(initScripts) do
     if condition then
-        log("loading", script)
+        logger.info("loading", script)
         local status, err = pcall(function()
             modimport(script)
         end)
         if not status then
-            log("Error:", script, err)
+            logger.error(script, err)
         end
     end
 end

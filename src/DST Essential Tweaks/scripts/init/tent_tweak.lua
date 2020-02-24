@@ -1,5 +1,5 @@
-local function init(prefab)
-    AddPrefabPostInit(prefab, function(inst, ...)
+local function init(prefabName)
+    AddPrefabPostInit(prefabName, function(inst, ...)
         if inst.components.finiteuses ~= nil then
             function inst.components.finiteuses:Use()
                 self:SetUses(self.total)

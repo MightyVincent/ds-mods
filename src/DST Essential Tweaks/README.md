@@ -1,31 +1,32 @@
-# DST常用修改整合 DST Essential Tweaks
-
-本MOD主要为我个人使用，目的在于整合、修复、优化甚至重做一些我必用的或无人维护的MOD。
+# DST Essential Tweaks
 
 This mod is mainly for my personal usage, aiming at integrating / modifying / fixing / optimizing some essential to me or abandoned mods.
 
-## 特性 Features
+## Features
 
-1. Mine Auto Reset (Inspired by [Auto Tooth Trap Reset](https://steamcommunity.com/sharedfiles/filedetails/?id=588560555))
+1. Combat Trap Auto Reset (Inspired by [Auto Tooth Trap Reset](https://steamcommunity.com/sharedfiles/filedetails/?id=588560555))
 
-    Mines (Teeth Trap, Maxwell Teeth Trap, Bramble Trap) will auto reset after a short delay
+    - Combat Traps will auto reset after a short delay
+    - Works only on: Teeth Trap / Maxwell Teeth Trap / Bramble Trap (Won't affect Anenemy trap)
 
-    - Changed to work only on teeth trap / bramble trap, solving anenemy traps' problem.
+1. Catch Trap Can Reset (Inspired by [Trap Reset](https://steamcommunity.com/sharedfiles/filedetails/?id=679636739))
 
-1. Trap Can Reset (Inspired by [Trap Reset](https://steamcommunity.com/sharedfiles/filedetails/?id=679636739))
+    - Catch Traps can be reset instead of picking up
+    - Works only on: Trap / Bird Trap
 
-    Trap (Trap, Bird Trap) can be reset instead of picking up
+1. Tent & Siesta Lean-to Uses Tweak (Inspired by [Infinite Tent Uses](https://steamcommunity.com/sharedfiles/filedetails/?id=356930882))
 
-    - Changed to work only on trap / bird trap
+    - Can change uses from default value to infinite as you wish
+    - When set to infinite, the uses will always be updated to the max value, instead of reduced
 
-1. Tent Uses & Siesta Lean-to Uses (Inspired by [Infinite Tent Uses](https://steamcommunity.com/sharedfiles/filedetails/?id=356930882))
+1. Really Invincible Companions
 
-    - Changed that when infinite the uses will always be set to the max value on using
+    - Some companions having a player as leader won't take any damage or attract monsters' attention
+    - Meanwhile, they can still be interact with like storing items
+    - They will become normal when they have no player leader (like when you drop the eye-bone on the ground), thus you can still complete the 'Murdered Chester' achievement in [DST Achievement](https://steamcommunity.com/sharedfiles/filedetails/?id=1084023218))
+    - Currently, works only on: Chest / Hutch (waiting to add others)
 
-## 免责声明 Disclaimer
+## Disclaimer
 
-- 对于拷贝的原版的部分: 归原作者
-- 对于修复的优化的部分: [随你爱咋咋](http://www.wtfpl.net/)
-
-- For copied original part: credits go to the original author
-- For fixed optimized part: [WTFPL](http://www.wtfpl.net/)
+- For copied/original part: credits go to the original author
+- For fixed/optimized/remade part: [WTFPL](http://www.wtfpl.net/)

@@ -58,7 +58,7 @@ async function _deploy() {
   await new Promise((resolve, reject) => {
     src(modGlobs)
       .pipe(gIgnore.exclude((file: VFile) => distFiles.has(path.relative(deployPath, file.path))))
-      .pipe(gClean())
+      .pipe(gClean({force: true}))
       .on('finish', resolve)
       .on('error', reject)
       .pipe(gLogger(file => `Cleaned: ${file.path}`))
