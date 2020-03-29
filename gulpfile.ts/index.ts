@@ -6,6 +6,7 @@ import gFilter from "gulp-filter"
 import gIf from "gulp-if"
 import gIgnore from "gulp-ignore"
 import gMultiDest from "gulp-multi-dest"
+import gReplace from "gulp-replace"
 import gLogger from "./gulp-logger"
 import gLuaMinify from "./gulp-lua-minify"
 // import gCacheFilter from "./gulp-cache-filter"
@@ -14,22 +15,22 @@ import VFile from "vinyl"
 
 const isProd = gUtil.env.production
 const deployPath = 'D:\\SteamLibrary\\steamapps\\common\\Don\'t Starve Together\\mods'
-// const deployPath = 'deploy'
 
 function _clean() {
   return src('dist/*', {read: false})
-    .pipe(gClean())
-    .pipe(gLogger(file => `Cleaned: ${file.path}`))
+    .pipe(gLogger(file => `Cleaning: ${file.path}`))
+    .pipe(gClean() as NodeJS.ReadWriteStream)
 }
 
 function _src() {
   let luaFilter = gFilter('src/**/*.lua', {restore: true})
   return src('src/**/*.*', {since: lastRun(_src)})
     .pipe(luaFilter)
-    .pipe(gIf(isProd, gLuaMinify()))
+    .pipe(gIf(isProd, gLuaMinify(), gIf(fs => fs.basename == "modinfo.lua",
+      gReplace(/(name\s*=\s*)(.*)/, "$1\"[Dev] \"..$2"))))
     .pipe(luaFilter.restore)
+    .pipe(gLogger(file => `Emitting: ${file.path}`))
     .pipe(dest('dist'))
-    .pipe(gLogger(file => `Emitted: ${file.path}`))
 }
 
 
@@ -38,7 +39,7 @@ async function _lib() {
   await new Promise((resolve, reject) => {
     src('lib/**/*.lua', {since: lastRun(_lib)})
       .pipe(gIf(isProd, gLuaMinify()))
-      .pipe(gMultiDest(modPaths))
+      .pipe(gMultiDest(modPaths) as NodeJS.ReadWriteStream)
       .on('finish', resolve)
       .on('error', reject)
   })
@@ -47,21 +48,21 @@ async function _lib() {
 async function _deploy() {
   await new Promise((resolve, reject) => {
     src('dist/**/*.*', {since: lastRun(_deploy)})
+      .pipe(gLogger(file => `Deploying: ${file.path}`))
       .pipe(dest(deployPath))
       .on('finish', resolve)
       .on('error', reject)
-      .pipe(gLogger(file => `Deployed: ${file.path}`))
   })
 
-  let modGlobs = await utils.globsToArray('dist/*/', file => `${deployPath}/${file.basename}/**/*.*`)
-  let distFiles = await utils.globsToSet('dist/**/*.*', file => file.relative)
+  let modGlobArray = await utils.globsToArray('dist/*/', file => `${deployPath}/${file.basename}/**/*.*`)
+  let distFileSet = await utils.globsToSet('dist/**/*.*', file => file.relative)
   await new Promise((resolve, reject) => {
-    src(modGlobs)
-      .pipe(gIgnore.exclude((file: VFile) => distFiles.has(path.relative(deployPath, file.path))))
-      .pipe(gClean({force: true}))
+    src(modGlobArray)
+      .pipe((gIgnore.exclude((file: VFile) => distFileSet.has(path.relative(deployPath, file.path)))) as NodeJS.ReadWriteStream)
+      .pipe(gLogger(file => `Cleaning: ${file.path}`))
+      .pipe(gClean({force: true}) as NodeJS.ReadWriteStream)
       .on('finish', resolve)
       .on('error', reject)
-      .pipe(gLogger(file => `Cleaned: ${file.path}`))
   })
   return Promise.resolve()
 }
