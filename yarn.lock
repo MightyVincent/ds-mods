@@ -82,17 +82,10 @@
   resolved "https://registry.npm.taobao.org/@types/node/download/@types/node-13.7.4.tgz#76c3cb3a12909510f52e5dc04a6298cdf9504ffd"
   integrity sha1-dsPLOhKQlRD1Ll3ASmKYzflQT/0=
 
-"@types/through2@*":
+"@types/through2@*", "@types/through2@^2.0.34":
   version "2.0.34"
   resolved "https://registry.npm.taobao.org/@types/through2/download/@types/through2-2.0.34.tgz#9c2a259a238dace2a05a2f8e94b786961bc27ac4"
   integrity sha1-nColmiONrOKgWi+OlLeGlhvCesQ=
-  dependencies:
-    "@types/node" "*"
-
-"@types/through2@^2.0.34":
-  version "2.0.34"
-  resolved "https://registry.yarnpkg.com/@types/through2/-/through2-2.0.34.tgz#9c2a259a238dace2a05a2f8e94b786961bc27ac4"
-  integrity sha512-nhRG8+RuG/L+0fAZBQYaRflXKjTrHOKH8MFTChnf+dNVMxA3wHYYrfj0tztK0W51ABXjGfRCDc0vRkecCOrsow==
   dependencies:
     "@types/node" "*"
 
@@ -1783,9 +1776,9 @@ minimatch@^3.0.3, minimatch@^3.0.4:
     brace-expansion "^1.1.7"
 
 minimist@^1.1.0:
-  version "1.2.0"
-  resolved "https://registry.npm.taobao.org/minimist/download/minimist-1.2.0.tgz#a35008b20f41383eec1fb914f4cd5df79a264284"
-  integrity sha1-o1AIsg9BOD7sH7kU9M1d95omQoQ=
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
+  integrity sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
 
 mixin-deep@^1.2.0:
   version "1.3.2"
